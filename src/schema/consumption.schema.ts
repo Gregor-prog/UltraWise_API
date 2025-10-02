@@ -1,7 +1,7 @@
 import {Schema,model} from "mongoose"
 
 const consumption = new Schema({
-    waterConsumedHr : {type: Number, required:true  },
+    waterConsumedDay : {type: Number, required:true  },
 
 },
     {timestamps:true}

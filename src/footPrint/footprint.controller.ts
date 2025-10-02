@@ -40,14 +40,14 @@ export class footPrintController implements Controller{
         }
     }
 
-    public async storeTankDimensions(req:Request,res: Response){
+    public async storeTankDimensions(req:Request,res:Response){
             const {tankVolume,tankHeight} = req.body
             
             try {
             if(!tankVolume){throw new HttpError("empty field",401)}
             if(!tankHeight){throw new HttpError("empty field",401)}
-
-            const response = await tankSchema_.insertOne({tankHeight,tankVolume})
+            let tankRadius = Math.sqrt(tankVolume / (tankHeight * Math.PI))
+            const response = await tankSchema_.insertOne({tankHeight,tankVolume,tankRadius})
             res.status(200).json({
                 success:false,
                 message:"tank dimension is successfully stored",

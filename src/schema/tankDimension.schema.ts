@@ -4,7 +4,8 @@ import {Schema,model} from "mongoose";
 const tankSchema = new Schema(
     {
         tankVolume:{type: Number,require:true},
-        tankHeight:{type:Number, required:true}
+        tankHeight:{type:Number, required:true},
+        tankRadius:{type:Number, required:true}
     },
     {timestamps:true}
 )
